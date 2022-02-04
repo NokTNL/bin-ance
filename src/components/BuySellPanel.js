@@ -1,8 +1,16 @@
-export default function BuySellPanel() {
+export default function BuySellPanel({ buyOrSell, setBuyOrSell }) {
+  const onSelection = (event) => {
+    setBuyOrSell(event.target.value);
+  };
+
   return (
-    <div className="buy-sell-panel">
-      <button>Buy</button>
-      <button>Sell</button>
+    <div>
+      <button value="buy" onClick={onSelection}>
+        Buy
+      </button>
+      <button value="sell" onClick={onSelection}>
+        Sell
+      </button>
     </div>
   );
 }

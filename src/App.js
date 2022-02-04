@@ -17,14 +17,16 @@ function App() {
     crypto: "",
     fiat: "",
   });
-  console.log(`selected: ${currencyPair.crypto}/${currencyPair.fiat}`);
+  const [buyOrSell, setBuyOrSell] = useState("buy");
+  const buySellArr =
+    buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   return (
     <div className="App">
       <Header />
-      <BuySellPanel />
+      <BuySellPanel buyOrSell={buyOrSell} setBuyOrSell={setBuyOrSell} />
       <ExchangeRate price={price} currencyPair={currencyPair} />
-      {["fiat", "crypto"].map((cat) => (
+      {buySellArr.map((cat) => (
         <CurrencyInput
           currencyCat={cat}
           currencyType={currencyPair[cat]}
