@@ -11,6 +11,10 @@ export default function CurrencyOptions({
     useState(myFullCurrencyList);
   const [searchText, setSearchText] = useState("");
 
+  const onCancel = () => {
+    setIsShowingOptions(false);
+  };
+
   const onSearchTextChange = (event) => {
     const searchText = event.target.value;
     setSearchText(searchText);
@@ -36,22 +40,26 @@ export default function CurrencyOptions({
   };
 
   return (
-    <form>
-      <input type="text" value={searchText} onChange={onSearchTextChange} />
-      {shownCurrencyList.map((currency) => (
-        <Fragment key={currency.symbol}>
-          <input
-            type="submit"
-            name={currencyCat}
-            id={currency.symbol}
-            // no need value as the element is recognised by id
-            onClick={onConfirmCurrency}
-          />
-          <label htmlFor={currency.symbol}>
-            {currency.symbol}, {currency.name}
-          </label>
-        </Fragment>
-      ))}
-    </form>
+    <Fragment>
+      <div>Select Currency</div>
+      <button onClick={onCancel}>Cancel</button>
+      <form>
+        <input type="text" value={searchText} onChange={onSearchTextChange} />
+        {shownCurrencyList.map((currency) => (
+          <Fragment key={currency.symbol}>
+            <input
+              type="submit"
+              name={currencyCat}
+              id={currency.symbol}
+              // no need value as the element is recognised by id
+              onClick={onConfirmCurrency}
+            />
+            <label htmlFor={currency.symbol}>
+              {currency.symbol}, {currency.name}
+            </label>
+          </Fragment>
+        ))}
+      </form>
+    </Fragment>
   );
 }
