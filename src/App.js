@@ -13,6 +13,10 @@ let price = 35000;
 
 function App() {
   const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
+  const [inputAmountPair, setInputAmountPair] = useState({
+    crypto: "",
+    fiat: "",
+  });
   console.log(`selected: ${currencyPair.crypto}/${currencyPair.fiat}`);
 
   return (
@@ -20,16 +24,17 @@ function App() {
       <Header />
       <BuySellPanel />
       <ExchangeRate price={price} currencyPair={currencyPair} />
-      <CurrencyInput
-        currencyCat="fiat"
-        currencyType={currencyPair.fiat}
-        setCurrencyPair={setCurrencyPair}
-      />
-      <CurrencyInput
-        currencyCat="crypto"
-        currencyType={currencyPair.crypto}
-        setCurrencyPair={setCurrencyPair}
-      />
+      {["fiat", "crypto"].map((cat) => (
+        <CurrencyInput
+          currencyCat={cat}
+          currencyType={currencyPair[cat]}
+          setCurrencyPair={setCurrencyPair}
+          inputAmount={inputAmountPair[cat]}
+          setInputAmountPair={setInputAmountPair}
+          price={price}
+          key={cat}
+        />
+      ))}
       <a href="#">
         <button>Proceed</button>
       </a>
