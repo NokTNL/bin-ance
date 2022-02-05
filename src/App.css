@@ -1,5 +1,6 @@
 .App {
   /* can be improved to become fully responsive by @media */
+  min-width: 400px;
 
   display: flex;
   flex-direction: column;
@@ -49,6 +50,10 @@ main {
 
   text-align: center;
   font-weight: 500;
+}
+
+.bottom-button button {
+  margin-left: 1.5rem;
 }
 
 .bottom-button svg {
