@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExchangeAlt } from "@fortawesome/free-solid-svg-icons";
+
+import "./ExchangeRate.css";
 
 export default function ExchangeRate({
   price,
@@ -15,14 +19,14 @@ export default function ExchangeRate({
     return <div>loading...</div>;
   } else {
     return (
-      <div>
+      <div className="exchange-rate">
         <span>
           {isCryptoBase
             ? `1 ${crypto} ≈ ${price} ${fiat}`
             : `1 ${fiat} ≈ ${1 / price} ${crypto}`}
         </span>
         <button onClick={handleSwap}>
-          <img alt="Swap" />
+          <FontAwesomeIcon icon={faExchangeAlt} />
         </button>
       </div>
     );

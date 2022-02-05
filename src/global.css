@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap");
+
+:root {
+  --binance-yellow: #f7bc0c;
+  --binance-very-light-grey: #fafafa;
+  --binance-dark-grey: #707a8a;
+}
+
+.App {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  color: var(--binance-dark-grey);
+}
+
+button {
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}

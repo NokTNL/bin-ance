@@ -35,7 +35,7 @@ const socketMod = (function () {
         cryptoTypeUpper,
         fiatTypeUpper
       );
-      setPriceFunc(latestPrice);
+      setPriceFunc(parseFloat(latestPrice));
       console.log(
         `[open] Connection established for ${cryptoTypeUpper}/${fiatTypeUpper}`
       );
@@ -46,7 +46,7 @@ const socketMod = (function () {
         `[message] Message received for ${cryptoTypeUpper}/${fiatTypeUpper}`
       );
       const { p: price } = JSON.parse(data);
-      setPriceFunc(price);
+      setPriceFunc(parseFloat(price));
     };
 
     _socket.onclose = function (event) {

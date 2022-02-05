@@ -1,0 +1,21 @@
+.buy-sell-panel {
+  display: flex;
+  width: 100%;
+}
+
+.buy-sell-panel button {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--binance-dark-grey);
+
+  border-bottom-style: solid;
+  border-bottom-color: var(--binance-very-light-grey);
+  border-bottom-width: 0.3rem;
+
+  flex: 1;
+}
+
+.buy-sell-panel .buy-sell-panel__selected {
+  color: black;
+  border-bottom-color: var(--binance-yellow);
+}

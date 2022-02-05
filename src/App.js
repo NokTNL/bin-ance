@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import BuySellPanel from "./components/BuySellPanel";
 import CurrencyInput from "./components/CurrencyInput";
 import ExchangeRate from "./components/ExchangeRate";
-import Header from "./components/Header";
 import fetchPrice from "./fetchPrice";
+
+import "./App.css";
+import "./global.css";
+import logoSVG from "./img/bin-ance_logo.png";
 
 const CURRENCY_PAIR_DEFAULT = {
   crypto: "BTC",
@@ -39,27 +42,31 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <BuySellPanel buyOrSell={buyOrSell} setBuyOrSell={setBuyOrSell} />
-      <ExchangeRate
-        price={price}
-        currencyPair={currencyPair}
-        isPriceLoading={isPriceLoading}
-      />
-      {buySellArr.map((cat) => (
-        <CurrencyInput
-          currencyCat={cat}
-          currencyType={currencyPair[cat]}
-          setCurrencyPair={setCurrencyPair}
-          inputAmount={inputAmountPair[cat]}
-          setInputAmountPair={setInputAmountPair}
+      <header>
+        <img alt="bin-ance logo" src={logoSVG} />
+      </header>
+      <main>
+        <BuySellPanel buyOrSell={buyOrSell} setBuyOrSell={setBuyOrSell} />
+        <ExchangeRate
           price={price}
-          key={cat}
+          currencyPair={currencyPair}
+          isPriceLoading={isPriceLoading}
         />
-      ))}
-      <a href="#">
-        <button>Proceed</button>
-      </a>
+        {buySellArr.map((cat) => (
+          <CurrencyInput
+            currencyCat={cat}
+            currencyType={currencyPair[cat]}
+            setCurrencyPair={setCurrencyPair}
+            inputAmount={inputAmountPair[cat]}
+            setInputAmountPair={setInputAmountPair}
+            price={price}
+            key={cat}
+          />
+        ))}
+        <a href="#">
+          <button>Proceed</button>
+        </a>
+      </main>
     </div>
   );
 }
