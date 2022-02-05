@@ -12,6 +12,8 @@
   border-bottom-color: var(--binance-very-light-grey);
   border-bottom-width: 0.3rem;
 
+  padding: 0.5em 0;
+
   flex: 1;
 }
 

@@ -44,7 +44,12 @@ export default function CurrencyOptions({
       <div>Select Currency</div>
       <button onClick={onCancel}>Cancel</button>
       <form>
-        <input type="text" value={searchText} onChange={onSearchTextChange} />
+        <input
+          type="text"
+          value={searchText}
+          placeholder="Search..."
+          onChange={onSearchTextChange}
+        />
         {shownCurrencyList.map((currency) => (
           <Fragment key={currency.symbol}>
             <input

@@ -6,7 +6,9 @@ import fetchPrice from "./fetchPrice";
 
 import "./App.css";
 import "./global.css";
-import logoSVG from "./img/bin-ance_logo.png";
+import logoImg from "./img/bin-ance_logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const CURRENCY_PAIR_DEFAULT = {
   crypto: "BTC",
@@ -43,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img alt="bin-ance logo" src={logoSVG} />
+        <img alt="bin-ance logo" src={logoImg} />
       </header>
       <h1>Buy Crypto</h1>
       <main>
@@ -65,8 +67,9 @@ function App() {
             index={index}
           />
         ))}
-        <a href="#">
+        <a className="bottom-button" href="https://github.com/NokTNL/bin-ance">
           <button>Proceed</button>
+          <FontAwesomeIcon icon={faGithub} />
         </a>
       </main>
     </div>

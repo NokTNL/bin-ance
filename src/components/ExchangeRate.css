@@ -1,8 +1,25 @@
 .exchange-rate {
-  padding: 0.5em 0;
+  text-align: center;
+
+  height: 2em; /* To fix the height regardless of loading or loaded, bc. of border-box */
+  padding: 1em 0;
+  margin: 1rem 0;
 }
 
-.exchange-rate svg {
-  color: var(--binance-dark-grey);
+.exchange-rate button {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
   margin-left: 0.5em;
+}
+
+.exchange-rate button svg {
+  font-size: 0.8em;
+  color: var(--binance-dark-grey);
 }

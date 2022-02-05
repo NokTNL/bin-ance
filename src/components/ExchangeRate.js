@@ -16,7 +16,7 @@ export default function ExchangeRate({
   };
 
   if (isPriceLoading) {
-    return <div>loading...</div>;
+    return <div className="exchange-rate">loading...</div>;
   } else {
     return (
       <div className="exchange-rate">

@@ -13,16 +13,22 @@
   color: var(--binance-dark-grey);
 }
 
-.App * {
+*,
+*:before,
+*:after {
+  /* All boxes use border box */
   box-sizing: inherit;
+  font: inherit;
 }
 
 button {
-  font-family: "IBM Plex Sans", Arial, sans-serif;
-
   background-color: transparent;
   border: none;
   padding: 0;
 
   cursor: pointer;
+}
+
+a {
+  color: black;
 }
