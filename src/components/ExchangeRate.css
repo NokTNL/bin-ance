@@ -1,3 +1,8 @@
+.exchange-rate {
+  padding: 0.5em 0;
+}
+
 .exchange-rate svg {
   color: var(--binance-dark-grey);
+  margin-left: 0.5em;
 }

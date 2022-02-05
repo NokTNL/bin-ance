@@ -1,0 +1,11 @@
+.currency-input {
+  background-color: var(--binance-very-light-grey);
+  margin: 1rem 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+.currency-input h4 {
+  font-weight: 400;
+  margin: 0;
+}

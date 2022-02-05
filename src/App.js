@@ -45,6 +45,7 @@ function App() {
       <header>
         <img alt="bin-ance logo" src={logoSVG} />
       </header>
+      <h1>Buy Crypto</h1>
       <main>
         <BuySellPanel buyOrSell={buyOrSell} setBuyOrSell={setBuyOrSell} />
         <ExchangeRate
@@ -52,7 +53,7 @@ function App() {
           currencyPair={currencyPair}
           isPriceLoading={isPriceLoading}
         />
-        {buySellArr.map((cat) => (
+        {buySellArr.map((cat, index) => (
           <CurrencyInput
             currencyCat={cat}
             currencyType={currencyPair[cat]}
@@ -61,6 +62,7 @@ function App() {
             setInputAmountPair={setInputAmountPair}
             price={price}
             key={cat}
+            index={index}
           />
         ))}
         <a href="#">

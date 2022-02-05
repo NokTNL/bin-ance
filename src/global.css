@@ -7,8 +7,14 @@
 }
 
 .App {
+  box-sizing: border-box;
+
   font-family: "IBM Plex Sans", Arial, sans-serif;
   color: var(--binance-dark-grey);
+}
+
+.App * {
+  box-sizing: inherit;
 }
 
 button {

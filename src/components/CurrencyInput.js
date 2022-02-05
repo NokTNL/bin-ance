@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CurrencyOptions from "./CurrencyOptions";
+import "./CurrencyInput.css";
 
 export default function CurrencyInput({
   currencyCat,
@@ -8,6 +9,7 @@ export default function CurrencyInput({
   inputAmount,
   setInputAmountPair,
   price,
+  index,
 }) {
   const [isShowingOptions, setIsShowingOptions] = useState(false);
 
@@ -31,7 +33,8 @@ export default function CurrencyInput({
   };
 
   return (
-    <div>
+    <div className="currency-input">
+      <h4>{index === 0 ? "Spend" : "Receive"}</h4>
       <input
         type="number"
         min={0}

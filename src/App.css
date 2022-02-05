@@ -1,14 +1,27 @@
 .App {
-  max-width: 20rem;
   margin: 0 auto;
 }
 
+header {
+  margin-bottom: 2rem;
+}
+
 header img {
-  height: 2.5rem;
+  height: 2.7rem;
+}
+
+.App h1 {
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  margin-left: 0.5em;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin: 0 0.5em;
 }
