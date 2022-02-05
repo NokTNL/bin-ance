@@ -7,6 +7,7 @@ import fetchPrice from "./fetchPrice";
 import "./App.css";
 import "./global.css";
 import logoImg from "./img/bin-ance_logo.png";
+import creditImg from "./img/credit.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
@@ -45,7 +46,12 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img alt="bin-ance logo" src={logoImg} />
+        <img alt="bin-ance" src={logoImg} className="header__logo-img" />
+        <img
+          alt="powered by the Binance API"
+          src={creditImg}
+          className="header__credit-img"
+        />
       </header>
       <h1>Buy Crypto</h1>
       <main>

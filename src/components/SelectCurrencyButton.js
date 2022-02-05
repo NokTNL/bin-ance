@@ -15,7 +15,7 @@ export default function SelectCurrencyButton({
     <button className="select-currency-button" onClick={onSelectCurrency}>
       <img
         src={images[currencyType]}
-        alt={currencyType}
+        alt=""
         className="select-currency-button__currency-image"
       />
       <span className="select-currency-button__text">{currencyType}</span>

@@ -3,6 +3,7 @@ import CurrencyOptions from "./CurrencyOptions";
 import "./CurrencyInput.css";
 
 import SelectCurrencyButton from "./SelectCurrencyButton";
+import Overlay from "./Overlay";
 
 export default function CurrencyInput({
   currencyCat,
@@ -47,11 +48,13 @@ export default function CurrencyInput({
         />
       </div>
       {isShowingOptions && (
-        <CurrencyOptions
-          currencyCat={currencyCat}
-          setCurrencyPair={setCurrencyPair}
-          setIsShowingOptions={setIsShowingOptions}
-        />
+        <Overlay>
+          <CurrencyOptions
+            currencyCat={currencyCat}
+            setCurrencyPair={setCurrencyPair}
+            setIsShowingOptions={setIsShowingOptions}
+          />
+        </Overlay>
       )}
     </div>
   );

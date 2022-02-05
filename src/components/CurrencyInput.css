@@ -11,7 +11,8 @@
   border: 1px solid transparent;
 }
 
-.currency-input:hover {
+.currency-input:hover,
+.currency-input:focus-within {
   border: 1px solid var(--binance-yellow);
 }
 
@@ -31,7 +32,7 @@
 
 .input-button-flex-container input {
   background-color: transparent;
-  border: none;
+  outline: none; /* disable outline on focus as we have one in the parent element already */
 
   flex: 1;
   margin-right: 1em;

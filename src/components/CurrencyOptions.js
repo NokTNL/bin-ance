@@ -1,70 +1,30 @@
-import { useState, Fragment } from "react";
-import { fullCurrencyList } from "../database";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import "./CurrencyOptions.css";
+import CurrencyOptionsSubmitForm from "./CurrencyOptionsSubmitForm";
 
 export default function CurrencyOptions({
   currencyCat,
   setCurrencyPair,
   setIsShowingOptions,
 }) {
-  const myFullCurrencyList = fullCurrencyList[currencyCat];
-  const [shownCurrencyList, setShownCurrencyList] =
-    useState(myFullCurrencyList);
-  const [searchText, setSearchText] = useState("");
-
   const onCancel = () => {
     setIsShowingOptions(false);
   };
 
-  const onSearchTextChange = (event) => {
-    const searchText = event.target.value;
-    setSearchText(searchText);
-
-    const searchRegExp = new RegExp(searchText.toUpperCase());
-    const myFilteredList = myFullCurrencyList.filter(
-      (currency) =>
-        searchRegExp.test(currency.symbol.toUpperCase()) ||
-        searchRegExp.test(currency.name.toUpperCase())
-    );
-
-    setShownCurrencyList(myFilteredList);
-  };
-
-  const onConfirmCurrency = (event) => {
-    event.preventDefault();
-
-    const selectedCurrency = event.target.id;
-    setCurrencyPair((prev) => {
-      return { ...prev, [currencyCat]: selectedCurrency };
-    });
-    setIsShowingOptions(false); // Hide CurrencyOptions
-  };
-
   return (
-    <Fragment>
-      <div>Select Currency</div>
-      <button onClick={onCancel}>Cancel</button>
-      <form>
-        <input
-          type="text"
-          value={searchText}
-          placeholder="Search..."
-          onChange={onSearchTextChange}
-        />
-        {shownCurrencyList.map((currency) => (
-          <Fragment key={currency.symbol}>
-            <input
-              type="submit"
-              name={currencyCat}
-              id={currency.symbol}
-              // no need value as the element is recognised by id
-              onClick={onConfirmCurrency}
-            />
-            <label htmlFor={currency.symbol}>
-              {currency.symbol}, {currency.name}
-            </label>
-          </Fragment>
-        ))}
-      </form>
-    </Fragment>
+    <div className="currency-options">
+      <div className="currency-options__heading-cancel-flex-container">
+        <h3>Select Currency</h3>
+        <button onClick={onCancel}>
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </div>
+      <CurrencyOptionsSubmitForm
+        currencyCat={currencyCat}
+        setCurrencyPair={setCurrencyPair}
+        setIsShowingOptions={setIsShowingOptions}
+      />
+    </div>
   );
 }

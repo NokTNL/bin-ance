@@ -3,6 +3,7 @@
 :root {
   --binance-yellow: #f7bc0c;
   --binance-very-light-grey: #fafafa;
+  --binance-medium-grey: #b7bdc6;
   --binance-dark-grey: #707a8a;
 }
 
@@ -31,4 +32,8 @@ button {
 
 a {
   color: black;
+}
+
+input {
+  border: none;
 }

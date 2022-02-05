@@ -1,0 +1,20 @@
+.currency-options {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.currency-options__heading-cancel-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.currency-options__heading-cancel-flex-container > h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: black;
+  font-weight: 500;
+}

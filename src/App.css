@@ -1,17 +1,26 @@
-/* Centering the whole app  */
-/* .App {
-  
-  margin: 0 auto;
-} */
+.App {
+  /* can be improved to become fully responsive by @media */
 
-header {
-  margin-top: 1rem;
-  margin-left: 0.4rem;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-header img {
-  height: 2.7rem;
+header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo-img {
+  height: 1.7rem;
+  margin-left: 0.6rem;
+  margin-top: 1rem;
+}
+
+.header__credit-img {
+  height: 2rem;
+  margin-right: 0.6rem;
+  margin-top: 0.7rem;
 }
 
 .App h1 {
@@ -26,7 +35,7 @@ main {
   margin: 0 0.5em;
 }
 
-main .bottom-button {
+.bottom-button {
   /* footer style */
   position: fixed;
   bottom: 0;
@@ -42,6 +51,6 @@ main .bottom-button {
   font-weight: 500;
 }
 
-main .bottom-button svg {
+.bottom-button svg {
   margin: 0 0.7em;
 }

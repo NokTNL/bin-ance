@@ -1,0 +1,71 @@
+.currency-options__search-text {
+  border: 1px solid transparent;
+  background-color: var(--binance-very-light-grey);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.currency-options__search-text:hover {
+  border-color: var(--binance-yellow);
+}
+
+.currency-options__search-text:focus-within {
+  border-color: var(--binance-yellow);
+  background-color: white;
+}
+
+.currency-options__search-text svg {
+  margin: 0 0.5rem;
+  color: var(--binance-medium-grey);
+}
+
+.currency-options__search-text input {
+  outline: none;
+  background-color: transparent;
+  flex: 1;
+}
+
+.currency-options__search-text input::placeholder {
+  color: var(--binance-medium-grey);
+}
+
+.submit-form__option-list {
+  margin-top: 1rem;
+  /* overflow only works when height is specified */
+  height: 80%;
+  overflow: auto;
+}
+
+.submit-form__option-list-input-hidden {
+  display: none;
+}
+
+.submit-form__option-list-label {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.submit-form__option-list-label:hover {
+  background-color: var(--binance-very-light-grey);
+  cursor: pointer;
+}
+
+.submit-form__option-list-label-img {
+  height: 1.7rem;
+  padding-right: 1rem;
+}
+
+.submit-form__option-list-label-symbol-text {
+  color: black;
+  font-weight: 500;
+}
+
+.submit-form__option-list-label-name-text {
+  font-weight: 500;
+  font-size: 0.8rem;
+}
