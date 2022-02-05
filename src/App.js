@@ -24,7 +24,7 @@ function App() {
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
   const [buyOrSell, setBuyOrSell] = useState("buy");
-  const buySellArr =
+  const cryptoFiatOrder =
     buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
           currencyPair={currencyPair}
           isPriceLoading={isPriceLoading}
         />
-        {buySellArr.map((cat, index) => (
+        {cryptoFiatOrder.map((cat, index) => (
           <CurrencyInput
             currencyCat={cat}
             currencyType={currencyPair[cat]}

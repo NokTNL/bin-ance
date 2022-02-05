@@ -1,9 +1,8 @@
 import { useState } from "react";
 import CurrencyOptions from "./CurrencyOptions";
 import "./CurrencyInput.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { images } from "../imageLoader";
+
+import SelectCurrencyButton from "./SelectCurrencyButton";
 
 export default function CurrencyInput({
   currencyCat,
@@ -31,10 +30,6 @@ export default function CurrencyInput({
     }
   };
 
-  const onSelectCurrency = () => {
-    setIsShowingOptions(true);
-  };
-
   return (
     <div className="currency-input">
       <h4>{index === 0 ? "Spend" : "Receive"}</h4>
@@ -46,18 +41,10 @@ export default function CurrencyInput({
           placeholder={currencyCat === "crypto" ? "0.00000000" : "0.00"}
           onChange={onAmountChange}
         />
-        <button className="select-currency-button" onClick={onSelectCurrency}>
-          <img
-            src={images[currencyType]}
-            alt={currencyType}
-            className="select-currency-button__currency-image"
-          />
-          <span className="select-currency-button__text">{currencyType}</span>
-          <FontAwesomeIcon
-            className="select-currency-button__arrow"
-            icon={faAngleRight}
-          />
-        </button>
+        <SelectCurrencyButton
+          setIsShowingOptions={setIsShowingOptions}
+          currencyType={currencyType}
+        />
       </div>
       {isShowingOptions && (
         <CurrencyOptions

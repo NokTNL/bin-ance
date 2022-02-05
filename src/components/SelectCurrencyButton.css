@@ -1,0 +1,20 @@
+.select-currency-button {
+  display: flex;
+  align-items: center;
+
+  background-color: white;
+  padding: 0.4em;
+  border-radius: 1em;
+
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.select-currency-button__currency-image {
+  height: 1.2em;
+  margin-right: 0.5em;
+}
+
+.select-currency-button__text {
+  width: 3em;
+}

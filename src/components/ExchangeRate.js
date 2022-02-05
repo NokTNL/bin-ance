@@ -25,8 +25,14 @@ export default function ExchangeRate({
             ? `1 ${crypto} ≈ ${price} ${fiat}`
             : `1 ${fiat} ≈ ${1 / price} ${crypto}`}
         </span>
-        <button onClick={handleSwap}>
-          <FontAwesomeIcon icon={faExchangeAlt} />
+        <button
+          className="exchange-rate__swap-base-button"
+          onClick={handleSwap}
+        >
+          <FontAwesomeIcon
+            className="exchange-rate__swap-base-button-svg"
+            icon={faExchangeAlt}
+          />
         </button>
       </div>
     );
