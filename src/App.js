@@ -11,12 +11,19 @@ import creditImg from "./img/credit.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+// Redux
+import { useSelector } from "react-redux";
+
 const CURRENCY_PAIR_DEFAULT = {
   crypto: "BTC",
   fiat: "USD",
 };
 
 function App() {
+  // Redux
+  const buyOrSell = useSelector((state) => state.buyOrSell);
+
+  // useState
   const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
   const [inputAmountPair, setInputAmountPair] = useState({
     crypto: "",
@@ -24,7 +31,7 @@ function App() {
   });
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
-  const [buyOrSell, setBuyOrSell] = useState("buy");
+  // const [buyOrSell, setBuyOrSell] = useState("buy");
   const cryptoFiatOrder =
     buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
@@ -55,7 +62,10 @@ function App() {
       </header>
       <h1>Buy Crypto</h1>
       <main>
-        <BuySellPanel buyOrSell={buyOrSell} setBuyOrSell={setBuyOrSell} />
+        <BuySellPanel
+          buyOrSell={buyOrSell}
+          // setBuyOrSell={setBuyOrSell}
+        />
         <ExchangeRate
           price={price}
           currencyPair={currencyPair}

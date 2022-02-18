@@ -1,8 +1,16 @@
 import "./BuySellPanel.css";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function BuySellPanel({ buyOrSell, setBuyOrSell }) {
+export default function BuySellPanel({ buyOrSell }) {
+  // Selector returns buyOrSell
+  // const buyOrSell = useSelector((state) => state.buyOrSell);
+  const dispatch = useDispatch();
+
   const onSelection = (event) => {
-    setBuyOrSell(event.target.value);
+    dispatch({
+      type: "setBuyOrSell",
+      selection: event.target.value,
+    });
   };
 
   return (
