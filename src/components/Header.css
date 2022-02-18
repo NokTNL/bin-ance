@@ -1,0 +1,17 @@
+header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo-img {
+  height: 1.7rem;
+  margin-left: 0.2rem;
+  margin-top: 1rem;
+}
+
+.header__credit-img {
+  height: 2rem;
+  margin-right: 0.6rem;
+  margin-top: 0.7rem;
+}

@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import BuySellPanel from "./components/BuySellPanel";
 import CurrencyInput from "./components/CurrencyInput";
 import ExchangeRate from "./components/ExchangeRate";
+import Header from "./components/Header";
+import BottomButton from "./components/BottomButton";
 import fetchPrice from "./fetchPrice";
 
 import "./App.css";
 import "./global.css";
-import logoImg from "./img/bin-ance_logo.png";
-import creditImg from "./img/credit.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 // Redux
 import { useSelector } from "react-redux";
@@ -52,42 +50,27 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <img alt="bin-ance" src={logoImg} className="header__logo-img" />
-        <img
-          alt="powered by the Binance API"
-          src={creditImg}
-          className="header__credit-img"
-        />
-      </header>
+      <Header />
       <h1>Buy Crypto</h1>
-      <main>
-        <BuySellPanel
-          buyOrSell={buyOrSell}
-          // setBuyOrSell={setBuyOrSell}
-        />
-        <ExchangeRate
+      <BuySellPanel buyOrSell={buyOrSell} />
+      <ExchangeRate
+        price={price}
+        currencyPair={currencyPair}
+        isPriceLoading={isPriceLoading}
+      />
+      {cryptoFiatOrder.map((cat, index) => (
+        <CurrencyInput
+          currencyCat={cat}
+          currencyType={currencyPair[cat]}
+          setCurrencyPair={setCurrencyPair}
+          inputAmount={inputAmountPair[cat]}
+          setInputAmountPair={setInputAmountPair}
           price={price}
-          currencyPair={currencyPair}
-          isPriceLoading={isPriceLoading}
+          key={cat}
+          index={index}
         />
-        {cryptoFiatOrder.map((cat, index) => (
-          <CurrencyInput
-            currencyCat={cat}
-            currencyType={currencyPair[cat]}
-            setCurrencyPair={setCurrencyPair}
-            inputAmount={inputAmountPair[cat]}
-            setInputAmountPair={setInputAmountPair}
-            price={price}
-            key={cat}
-            index={index}
-          />
-        ))}
-        <a className="bottom-button" href="https://github.com/NokTNL/bin-ance">
-          <button>Proceed</button>
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-      </main>
+      ))}
+      <BottomButton />
     </div>
   );
 }
