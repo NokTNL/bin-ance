@@ -3,16 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import SelectCurrencyButton from "./SelectCurrencyButton";
 import CurrencyOptions from "./CurrencyOptions";
-import Overlay from "./Overlay";
+import Overlay from "../Helpers/Overlay";
 
-import "./CurrencyInput.css";
+import "./CurrencyBlock.css";
 
 export default function CurrencyInput({
   currencyCat,
   currencyType,
   setCurrencyPair,
-  // inputAmount,
-  // setInputAmountPair,
   price,
   index,
 }) {
@@ -47,9 +45,9 @@ export default function CurrencyInput({
   };
 
   return (
-    <div className="currency-input">
+    <div className="currency-block">
       <h4>{index === 0 ? "Spend" : "Receive"}</h4>
-      <div className="input-button-flex-container">
+      <div className="currency-block__input-button-flex-container">
         <input
           type="number"
           min={0}

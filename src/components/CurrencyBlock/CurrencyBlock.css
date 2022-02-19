@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&display=swap");
 
-.currency-input {
+.currency-block {
   background-color: var(--binance-very-light-grey);
 
   margin: 3rem 0;
@@ -11,26 +11,26 @@
   border: 1px solid transparent;
 }
 
-.currency-input:hover,
-.currency-input:focus-within {
+.currency-block:hover,
+.currency-block:focus-within {
   border: 1px solid var(--binance-yellow);
 }
 
-.currency-input h4 {
+.currency-block h4 {
   font-weight: 400;
   font-size: 0.9rem;
 
   margin: 0;
 }
 
-.input-button-flex-container {
+.currency-block__input-button-flex-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0 0 0;
 }
 
-.input-button-flex-container input {
+.currency-block__input-button-flex-container > input {
   background-color: transparent;
   outline: none; /* disable outline on focus as we have one in the parent element already */
 
@@ -41,6 +41,6 @@
   font-size: 1.2rem;
 }
 
-.input-button-flex-container input::placeholder {
+.currency-block__input-button-flex-container > input::placeholder {
   color: #b7bdc6;
 }

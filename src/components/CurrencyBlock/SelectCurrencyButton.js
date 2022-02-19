@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./SelectCurrencyButton.css";
-import { images } from "../imageLoader";
+import { images } from "../../imageLoader";
 
 export default function SelectCurrencyButton({
   setIsShowingOptions,

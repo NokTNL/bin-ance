@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import BuySellPanel from "./components/BuySellPanel";
-import CurrencyInput from "./components/CurrencyInput";
+import CurrencyBlock from "./components/CurrencyBlock/CurrencyBlock";
 import ExchangeRate from "./components/ExchangeRate";
 import Header from "./components/Header";
 import BottomButton from "./components/BottomButton";
+
 import fetchPrice from "./fetchPrice";
 
 import "./App.css";
 import "./global.css";
-
-// Redux
-import { useSelector } from "react-redux";
 
 const CURRENCY_PAIR_DEFAULT = {
   crypto: "BTC",
@@ -25,10 +25,6 @@ function App() {
 
   // useState
   const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
-  /* const [inputAmountPair, setInputAmountPair] = useState({
-    crypto: "",
-    fiat: "",
-  }); */
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
 
@@ -58,12 +54,10 @@ function App() {
         isPriceLoading={isPriceLoading}
       />
       {cryptoFiatOrder.map((cat, index) => (
-        <CurrencyInput
+        <CurrencyBlock
           currencyCat={cat}
           currencyType={currencyPair[cat]}
           setCurrencyPair={setCurrencyPair}
-          // inputAmount={inputAmountPair[cat]}
-          // setInputAmountPair={setInputAmountPair}
           price={price}
           key={cat}
           index={index}

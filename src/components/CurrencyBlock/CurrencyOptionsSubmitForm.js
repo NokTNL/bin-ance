@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
-import { fullCurrencyList } from "../database";
+import { fullCurrencyList } from "../../database";
 import "./CurrencyOptionsSubmitForm.css";
-import { images } from "../imageLoader";
+import { images } from "../../imageLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
