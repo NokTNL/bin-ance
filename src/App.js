@@ -20,18 +20,17 @@ const CURRENCY_PAIR_DEFAULT = {
 function App() {
   // Redux
   const buyOrSell = useSelector((state) => state.buyOrSell);
+  const cryptoFiatOrder =
+    buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   // useState
   const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
-  const [inputAmountPair, setInputAmountPair] = useState({
+  /* const [inputAmountPair, setInputAmountPair] = useState({
     crypto: "",
     fiat: "",
-  });
+  }); */
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
-  // const [buyOrSell, setBuyOrSell] = useState("buy");
-  const cryptoFiatOrder =
-    buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   useEffect(() => {
     // A function that 1. detects new prices starts coming in AND 2. sets the new price
@@ -52,7 +51,7 @@ function App() {
     <div className="App">
       <Header />
       <h1>Buy Crypto</h1>
-      <BuySellPanel buyOrSell={buyOrSell} />
+      <BuySellPanel />
       <ExchangeRate
         price={price}
         currencyPair={currencyPair}
@@ -63,8 +62,8 @@ function App() {
           currencyCat={cat}
           currencyType={currencyPair[cat]}
           setCurrencyPair={setCurrencyPair}
-          inputAmount={inputAmountPair[cat]}
-          setInputAmountPair={setInputAmountPair}
+          // inputAmount={inputAmountPair[cat]}
+          // setInputAmountPair={setInputAmountPair}
           price={price}
           key={cat}
           index={index}

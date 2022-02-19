@@ -1,32 +1,47 @@
 import { useState } from "react";
-import CurrencyOptions from "./CurrencyOptions";
-import "./CurrencyInput.css";
+import { useDispatch, useSelector } from "react-redux";
 
 import SelectCurrencyButton from "./SelectCurrencyButton";
+import CurrencyOptions from "./CurrencyOptions";
 import Overlay from "./Overlay";
+
+import "./CurrencyInput.css";
 
 export default function CurrencyInput({
   currencyCat,
   currencyType,
   setCurrencyPair,
-  inputAmount,
-  setInputAmountPair,
+  // inputAmount,
+  // setInputAmountPair,
   price,
   index,
 }) {
+  // Redux
+  const inputAmount = useSelector(
+    (state) => state.inputAmountPair[currencyCat]
+  );
+  const dispatch = useDispatch();
+
+  // useState
   const [isShowingOptions, setIsShowingOptions] = useState(false);
 
   const onAmountChange = (event) => {
     const amount = event.target.value;
     if (currencyCat === "fiat") {
-      setInputAmountPair({
-        fiat: amount,
-        crypto: amount / price,
+      dispatch({
+        type: "setInputAmountPair",
+        payload: {
+          fiat: amount,
+          crypto: amount / price,
+        },
       });
     } else {
-      setInputAmountPair({
-        fiat: amount * price,
-        crypto: amount,
+      dispatch({
+        type: "setInputAmountPair",
+        payload: {
+          fiat: amount * price,
+          crypto: amount,
+        },
       });
     }
   };
