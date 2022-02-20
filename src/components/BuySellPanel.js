@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../store";
 import "./BuySellPanel.css";
 
 export default function BuySellPanel() {
-  const buyOrSell = useSelector((state) => state.buyOrSell);
+  const buyOrSell = useSelector((state) => state.buying.buyOrSell);
   const dispatch = useDispatch();
 
-  const onSelection = (event) => {
-    dispatch({
-      type: "setBuyOrSell",
-      payload: event.target.value,
-    });
+  const handleSelection = (event) => {
+    dispatch(actions.buying.setBuyOrSell(event.target.value));
   };
 
   return (
@@ -17,14 +15,14 @@ export default function BuySellPanel() {
       <button
         className={buyOrSell === "buy" ? "buy-sell-panel__selected" : ""}
         value="buy"
-        onClick={onSelection}
+        onClick={handleSelection}
       >
         Buy
       </button>
       <button
         className={buyOrSell === "sell" ? "buy-sell-panel__selected" : ""}
         value="sell"
-        onClick={onSelection}
+        onClick={handleSelection}
       >
         Sell
       </button>

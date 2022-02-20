@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../store";
 
 import SelectCurrencyButton from "./SelectCurrencyButton";
 import CurrencyOptions from "./CurrencyOptions";
@@ -16,32 +16,29 @@ export default function CurrencyInput({
 }) {
   // Redux
   const inputAmount = useSelector(
-    (state) => state.inputAmountPair[currencyCat]
+    // Extract only that portion of the state
+    (state) => state.buying.inputAmountPair[currencyCat]
+  );
+  const isShowingOptions = useSelector(
+    (state) => state.currencyOptions.isShowingOptions
   );
   const dispatch = useDispatch();
 
-  // useState
-  const [isShowingOptions, setIsShowingOptions] = useState(false);
-
-  const onAmountChange = (event) => {
+  const handleAmountChange = (event) => {
     const amount = event.target.value;
-    if (currencyCat === "fiat") {
-      dispatch({
-        type: "setInputAmountPair",
-        payload: {
-          fiat: amount,
-          crypto: amount / price,
-        },
-      });
-    } else {
-      dispatch({
-        type: "setInputAmountPair",
-        payload: {
-          fiat: amount * price,
-          crypto: amount,
-        },
-      });
-    }
+    dispatch(
+      actions.buying.setInputAmountPair(
+        currencyCat === "fiat"
+          ? {
+              fiat: amount,
+              crypto: amount / price,
+            }
+          : {
+              fiat: amount * price,
+              crypto: amount,
+            }
+      )
+    );
   };
 
   return (
@@ -53,19 +50,15 @@ export default function CurrencyInput({
           min={0}
           value={inputAmount}
           placeholder={currencyCat === "crypto" ? "0.00000000" : "0.00"}
-          onChange={onAmountChange}
+          onChange={handleAmountChange}
         />
-        <SelectCurrencyButton
-          setIsShowingOptions={setIsShowingOptions}
-          currencyType={currencyType}
-        />
+        <SelectCurrencyButton currencyType={currencyType} />
       </div>
       {isShowingOptions && (
         <Overlay>
           <CurrencyOptions
             currencyCat={currencyCat}
             setCurrencyPair={setCurrencyPair}
-            setIsShowingOptions={setIsShowingOptions}
           />
         </Overlay>
       )}

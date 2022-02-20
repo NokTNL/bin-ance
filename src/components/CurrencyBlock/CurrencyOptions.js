@@ -1,15 +1,17 @@
+import { useDispatch } from "react-redux";
+import { actions } from "../../store";
+
+import CurrencyOptionsSubmitForm from "./CurrencyOptionsSubmitForm";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./CurrencyOptions.css";
-import CurrencyOptionsSubmitForm from "./CurrencyOptionsSubmitForm";
 
-export default function CurrencyOptions({
-  currencyCat,
-  setCurrencyPair,
-  setIsShowingOptions,
-}) {
+export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
+  const dispatch = useDispatch();
+
   const onCancel = () => {
-    setIsShowingOptions(false);
+    dispatch(actions.currencyOptions.showOptions(false));
   };
 
   return (
@@ -23,7 +25,6 @@ export default function CurrencyOptions({
       <CurrencyOptionsSubmitForm
         currencyCat={currencyCat}
         setCurrencyPair={setCurrencyPair}
-        setIsShowingOptions={setIsShowingOptions}
       />
     </div>
   );

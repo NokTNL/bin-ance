@@ -1,5 +1,9 @@
 import { useState, Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "../../store";
+
 import { fullCurrencyList } from "../../database";
+
 import "./CurrencyOptionsSubmitForm.css";
 import { images } from "../../imageLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,8 +12,10 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export default function CurrencyOptionsSubmitForm({
   currencyCat,
   setCurrencyPair,
-  setIsShowingOptions,
 }) {
+  const dispatch = useDispatch();
+
+  // Setting up for searching by text
   const myFullCurrencyList = fullCurrencyList[currencyCat];
   const [shownCurrencyList, setShownCurrencyList] =
     useState(myFullCurrencyList);
@@ -31,12 +37,11 @@ export default function CurrencyOptionsSubmitForm({
 
   const onConfirmCurrency = (event) => {
     event.preventDefault();
-
     const selectedCurrency = event.target.id;
     setCurrencyPair((prev) => {
       return { ...prev, [currencyCat]: selectedCurrency };
     });
-    setIsShowingOptions(false); // Hide CurrencyOptions
+    dispatch(actions.currencyOptions.showOptions(false)); // Hide CurrencyOptions
   };
 
   return (

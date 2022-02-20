@@ -19,7 +19,7 @@ const CURRENCY_PAIR_DEFAULT = {
 
 function App() {
   // Redux
-  const buyOrSell = useSelector((state) => state.buyOrSell);
+  const buyOrSell = useSelector((state) => state.buying.buyOrSell);
   const cryptoFiatOrder =
     buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
