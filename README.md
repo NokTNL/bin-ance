@@ -10,6 +10,7 @@ But *smarter* than the original page because the exchange rate updates whenever 
 ### Technical highlights
 
 - *React*: `useState` & `useEffect` hooks
+- *Redux*: states managed in slices
 - *JavaScript*: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `fetchPrice.js`)
 - *CSS*: flexbox, variables, full-page overlay
 
