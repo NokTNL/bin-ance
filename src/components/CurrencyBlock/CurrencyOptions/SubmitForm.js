@@ -1,16 +1,29 @@
 import { Fragment } from "react";
+import { fullCurrencyList } from "../../../database";
+import { useSelector } from "react-redux";
 
 import { images } from "../../../imageLoader";
 import "./SubmitForm.css";
 
 export default function SubmitForm({
   currencyCat,
-  shownCurrencyList,
   onConfirmCurrency: handleConfirmCurrency,
 }) {
+  // Setting up for filtering by search text
+  const searchText = useSelector((state) => state.currencyOptions.searchText);
+  const myFullCurrencyList = fullCurrencyList[currencyCat];
+
+  const searchRegExp = new RegExp(searchText.toUpperCase());
+  const myFilteredList = myFullCurrencyList.filter(
+    (currency) =>
+      // Match either the name or the symbol
+      searchRegExp.test(currency.symbol.toUpperCase()) ||
+      searchRegExp.test(currency.name.toUpperCase())
+  );
+
   return (
     <form className="submit-form__option-list">
-      {shownCurrencyList.map((currency) => {
+      {myFilteredList.map((currency) => {
         const { symbol, name } = currency;
         return (
           <Fragment key={symbol}>

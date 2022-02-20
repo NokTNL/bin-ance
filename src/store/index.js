@@ -5,6 +5,7 @@ const currencyOptions = createSlice({
   initialState: {
     isShowingOptions: false,
     curencyCat: "",
+    searchText: "",
   },
   reducers: {
     showOptions(state, action) {
@@ -14,6 +15,9 @@ const currencyOptions = createSlice({
     hideOptions(state) {
       state.isShowingOptions = false;
       state.currencyCat = "";
+    },
+    setSearchText(state, action) {
+      state.searchText = action.payload;
     },
   },
 });
