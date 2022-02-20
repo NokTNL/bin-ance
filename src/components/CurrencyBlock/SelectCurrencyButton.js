@@ -6,11 +6,11 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./SelectCurrencyButton.css";
 import { images } from "../../imageLoader";
 
-export default function SelectCurrencyButton({ currencyType }) {
+export default function SelectCurrencyButton({ currencyCat, currencyType }) {
   const dispatch = useDispatch();
 
   const handleSelectCurrency = () => {
-    dispatch(actions.currencyOptions.showOptions(true));
+    dispatch(actions.currencyOptions.showOptions(currencyCat));
   };
 
   return (

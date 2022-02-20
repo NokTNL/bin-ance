@@ -4,10 +4,16 @@ const currencyOptions = createSlice({
   name: "currencyOptions",
   initialState: {
     isShowingOptions: false,
+    curencyCat: "",
   },
   reducers: {
     showOptions(state, action) {
-      state.isShowingOptions = action.payload;
+      state.isShowingOptions = true;
+      state.currencyCat = action.payload;
+    },
+    hideOptions(state) {
+      state.isShowingOptions = false;
+      state.currencyCat = "";
     },
   },
 });

@@ -14,14 +14,18 @@ export default function CurrencyInput({
   price,
   index,
 }) {
-  // Redux
   const inputAmount = useSelector(
-    // Extract only that portion of the state
     (state) => state.buying.inputAmountPair[currencyCat]
   );
-  const isShowingOptions = useSelector(
-    (state) => state.currencyOptions.isShowingOptions
-  );
+  const isShowingOptions = useSelector((state) => {
+    // Only show options when this currency category is selected
+    if (
+      state.currencyOptions.currencyCat === currencyCat &&
+      state.currencyOptions.isShowingOptions === true
+    ) {
+      return true;
+    } else return false;
+  });
   const dispatch = useDispatch();
 
   const handleAmountChange = (event) => {
@@ -52,7 +56,10 @@ export default function CurrencyInput({
           placeholder={currencyCat === "crypto" ? "0.00000000" : "0.00"}
           onChange={handleAmountChange}
         />
-        <SelectCurrencyButton currencyType={currencyType} />
+        <SelectCurrencyButton
+          currencyCat={currencyCat}
+          currencyType={currencyType}
+        />
       </div>
       {isShowingOptions && (
         <Overlay>
