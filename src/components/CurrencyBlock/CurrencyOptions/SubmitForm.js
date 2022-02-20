@@ -1,14 +1,15 @@
 import { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "../../../store";
+
 import { fullCurrencyList } from "../../../database";
-import { useSelector } from "react-redux";
 
 import { images } from "../../../imageLoader";
 import "./SubmitForm.css";
 
-export default function SubmitForm({
-  currencyCat,
-  onConfirmCurrency: handleConfirmCurrency,
-}) {
+export default function SubmitForm({ currencyCat, setCurrencyPair }) {
+  const dispatch = useDispatch();
+
   // Setting up for filtering by search text
   const searchText = useSelector((state) => state.currencyOptions.searchText);
   const myFullCurrencyList = fullCurrencyList[currencyCat];
@@ -20,6 +21,15 @@ export default function SubmitForm({
       searchRegExp.test(currency.symbol.toUpperCase()) ||
       searchRegExp.test(currency.name.toUpperCase())
   );
+
+  const handleConfirmCurrency = (event) => {
+    event.preventDefault();
+    const selectedCurrency = event.target.id;
+    setCurrencyPair((prev) => {
+      return { ...prev, [currencyCat]: selectedCurrency };
+    });
+    dispatch(actions.currencyOptions.hideOptions()); // Hide CurrencyOptions
+  };
 
   return (
     <form className="submit-form__option-list">

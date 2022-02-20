@@ -14,16 +14,6 @@ export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
   const onCancel = () => {
     dispatch(actions.currencyOptions.showOptions(false));
   };
-
-  const handleConfirmCurrency = (event) => {
-    event.preventDefault();
-    const selectedCurrency = event.target.id;
-    setCurrencyPair((prev) => {
-      return { ...prev, [currencyCat]: selectedCurrency };
-    });
-    dispatch(actions.currencyOptions.hideOptions()); // Hide CurrencyOptions
-  };
-
   return (
     <div className="currency-options">
       <div className="currency-options__heading-cancel-flex-container">
@@ -33,10 +23,7 @@ export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
         </button>
       </div>
       <SearchText />
-      <SubmitForm
-        onConfirmCurrency={handleConfirmCurrency}
-        currencyCat={currencyCat}
-      />
+      <SubmitForm setCurrencyPair={setCurrencyPair} currencyCat={currencyCat} />
     </div>
   );
 }

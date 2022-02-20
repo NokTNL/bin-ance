@@ -1,4 +1,5 @@
 // This module has to be passed a setPriceFunc for updating the price continuously
+// Syntax: setPriceFunc(newPrice: number)
 
 // For fetching latest data once
 async function fetchLatestTrade(cryptoTypeUpper, fiatTypeUpper) {
