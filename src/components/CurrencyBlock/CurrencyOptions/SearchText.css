@@ -1,0 +1,34 @@
+.currency-options__search-text {
+  border: 1px solid transparent;
+  background-color: var(--binance-very-light-grey);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.currency-options__search-text:hover {
+  border-color: var(--binance-yellow);
+}
+
+.currency-options__search-text:focus-within {
+  border-color: var(--binance-yellow);
+  background-color: white;
+}
+
+.currency-options__search-text > svg {
+  margin: 0 0.5rem;
+  color: var(--binance-medium-grey);
+}
+
+.currency-options__search-text > input {
+  outline: none;
+  background-color: transparent;
+  flex: 1;
+}
+
+.currency-options__search-text input::placeholder {
+  color: var(--binance-medium-grey);
+}

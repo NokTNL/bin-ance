@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../store";
 
 import SelectCurrencyButton from "./SelectCurrencyButton";
-import CurrencyOptions from "./CurrencyOptions";
+import CurrencyOptions from "./CurrencyOptions/CurrencyOptions";
 import Overlay from "../Helpers/Overlay";
 
 import "./CurrencyBlock.css";
