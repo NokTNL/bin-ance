@@ -12,7 +12,7 @@ export default function CurrencyInput({
   currencyType,
   setCurrencyPair,
   price,
-  index,
+  isSpend,
 }) {
   const inputAmount = useSelector(
     (state) => state.buying.inputAmountPair[currencyCat]
@@ -33,14 +33,14 @@ export default function CurrencyInput({
     dispatch(
       actions.buying.changeInputAmount(
         /*** Maybe use the price in the state in the future */
-        { currencyCat, amount, price }
+        { amount, price, currencyCat }
       )
     );
   };
 
   return (
     <div className="currency-block">
-      <h4>{index === 0 ? "Spend" : "Receive"}</h4>
+      <h4>{isSpend ? "Spend" : "Receive"}</h4>
       <div className="currency-block__input-button-flex-container">
         <input
           type="number"

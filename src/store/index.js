@@ -4,7 +4,7 @@ const currencyOptions = createSlice({
   name: "currencyOptions",
   initialState: {
     isShowingOptions: false,
-    curencyCat: "",
+    currencyCat: "",
     searchText: "",
   },
   reducers: {
@@ -25,9 +25,8 @@ const currencyOptions = createSlice({
 const buying = createSlice({
   name: "buying",
   initialState: {
-    buyOrSell: "buy",
-    /*** This can be problaematic in the future: if I buy, do I base on the amount of crypto or fiat? */
-    /**** Should always based on "Spend" amount ? */
+    // true = buy, false = sell
+    isBuyCrypto: true,
     inputAmountPair: {
       crypto: "",
       fiat: "",
@@ -35,22 +34,31 @@ const buying = createSlice({
   },
   reducers: {
     setBuyOrSell(state, action) {
-      state.buyOrSell = action.payload;
+      switch (action.payload) {
+        case "buy":
+          state.isBuyCrypto = true;
+          break;
+        case "sell":
+          state.isBuyCrypto = false;
+          break;
+        default:
+          throw new Error(`Wrong type of payload in "setBuyOrSell"`);
+      }
     },
     changeInputAmount(state, action) {
       /** May remove price as it can also be retrieved from the state */
       /** Options: rootreducer, thunks */
       /*** https://redux.js.org/faq/reducers#how-do-i-share-state-between-two-reducers-do-i-have-to-use-combinereducers */
-      const { currencyCat, amount, price } = action.payload;
+      const { amount, price, currencyCat } = action.payload;
       state.inputAmountPair =
         currencyCat === "fiat"
           ? {
-              fiat: amount,
               crypto: amount / price,
+              fiat: amount,
             }
           : {
-              fiat: amount * price,
               crypto: amount,
+              fiat: amount * price,
             };
     },
   },

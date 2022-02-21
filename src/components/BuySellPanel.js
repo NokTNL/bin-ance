@@ -3,7 +3,7 @@ import { actions } from "../store";
 import "./BuySellPanel.css";
 
 export default function BuySellPanel() {
-  const buyOrSell = useSelector((state) => state.buying.buyOrSell);
+  const isBuyCrypto = useSelector((state) => state.buying.isBuyCrypto);
   const dispatch = useDispatch();
 
   const handleSelection = (event) => {
@@ -13,14 +13,14 @@ export default function BuySellPanel() {
   return (
     <div className="buy-sell-panel">
       <button
-        className={buyOrSell === "buy" ? "buy-sell-panel__selected" : ""}
+        className={isBuyCrypto ? "buy-sell-panel__button--selected" : ""}
         value="buy"
         onClick={handleSelection}
       >
         Buy
       </button>
       <button
-        className={buyOrSell === "sell" ? "buy-sell-panel__selected" : ""}
+        className={isBuyCrypto ? "" : "buy-sell-panel__button--selected"}
         value="sell"
         onClick={handleSelection}
       >

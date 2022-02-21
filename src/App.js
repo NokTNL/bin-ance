@@ -19,12 +19,13 @@ const CURRENCY_PAIR_DEFAULT = {
 
 function App() {
   // Redux
-  const buyOrSell = useSelector((state) => state.buying.buyOrSell);
-  const cryptoFiatOrder =
-    buyOrSell === "buy" ? ["fiat", "crypto"] : ["crypto", "fiat"];
+  const isBuyCrypto = useSelector((state) => state.buying.isBuyCrypto);
+  // If it's buying, display fiat above crytpo, and vice cersa
+  const cryptoFiatOrder = isBuyCrypto ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   // useState
   const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
+  // This price is always fiat per crypto (at least for the options provided in our database.js)
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
 
@@ -46,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Buy Crypto</h1>
+      <h1>{isBuyCrypto ? "Buy" : "Sell"} Crypto</h1>
       <BuySellPanel />
       <ExchangeRate
         price={price}
@@ -60,7 +61,7 @@ function App() {
           setCurrencyPair={setCurrencyPair}
           price={price}
           key={cat}
-          index={index}
+          isSpend={index === 0}
         />
       ))}
       <BottomButton />
