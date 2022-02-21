@@ -1,0 +1,14 @@
+.amount-input {
+  background-color: transparent;
+  outline: none; /* disable outline on focus as we have one in the parent element already */
+
+  flex: 1;
+  margin-right: 1em;
+
+  font-family: "IBM Plex Sans Condensed", "Arial", san-serif;
+  font-size: 1.2rem;
+}
+
+.amount-input::placeholder {
+  color: #b7bdc6;
+}

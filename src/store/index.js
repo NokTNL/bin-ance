@@ -27,6 +27,8 @@ const buying = createSlice({
   initialState: {
     // true = buy, false = sell
     isBuyCrypto: true,
+    selectedInput: "",
+    // only that slice of inputAmountPair is updated when the corresponding input box is selected
     inputAmountPair: {
       crypto: "",
       fiat: "",
@@ -45,21 +47,14 @@ const buying = createSlice({
           throw new Error(`Wrong type of payload in "setBuyOrSell"`);
       }
     },
+    selectInput(state, action) {
+      const { currencyCat, currentAmount } = action.payload;
+      state.selectedInput = currencyCat;
+      state.inputAmountPair[currencyCat] = currentAmount;
+    },
     changeInputAmount(state, action) {
-      /** May remove price as it can also be retrieved from the state */
-      /** Options: rootreducer, thunks */
-      /*** https://redux.js.org/faq/reducers#how-do-i-share-state-between-two-reducers-do-i-have-to-use-combinereducers */
-      const { amount, price, currencyCat } = action.payload;
-      state.inputAmountPair =
-        currencyCat === "fiat"
-          ? {
-              crypto: amount / price,
-              fiat: amount,
-            }
-          : {
-              crypto: amount,
-              fiat: amount * price,
-            };
+      const newAmount = action.payload;
+      state.inputAmountPair[state.selectedInput] = newAmount;
     },
   },
 });
