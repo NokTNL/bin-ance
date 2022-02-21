@@ -31,16 +31,9 @@ export default function CurrencyInput({
   const handleAmountChange = (event) => {
     const amount = event.target.value;
     dispatch(
-      actions.buying.setInputAmountPair(
-        currencyCat === "fiat"
-          ? {
-              fiat: amount,
-              crypto: amount / price,
-            }
-          : {
-              fiat: amount * price,
-              crypto: amount,
-            }
+      actions.buying.changeInputAmount(
+        /*** Maybe use the price in the state in the future */
+        { currencyCat, amount, price }
       )
     );
   };
