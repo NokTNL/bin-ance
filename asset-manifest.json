@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/bin-ance/static/css/main.3b8036f1.css",
-    "main.js": "/bin-ance/static/js/main.569f4ca4.js",
-    "static/media/DOGE.png": "/bin-ance/static/media/DOGE.a9424efadeaad7cd97e7.png",
-    "static/media/ATOM.png": "/bin-ance/static/media/ATOM.2c9ee82d120ccf6b5729.png",
-    "static/media/ETH.png": "/bin-ance/static/media/ETH.a85b6de0dc4a013ae2f8.png",
-    "static/media/SHIB.png": "/bin-ance/static/media/SHIB.ab75a889709b539aa7da.png",
-    "static/media/SOL.png": "/bin-ance/static/media/SOL.88dd9cd2498aebe1ee8c.png",
-    "static/media/bin-ance_logo.png": "/bin-ance/static/media/bin-ance_logo.68c3d6f7d43e9fe537e8.png",
-    "static/media/DOT.png": "/bin-ance/static/media/DOT.f6a28fa08b3298a9a296.png",
-    "static/media/ADA.png": "/bin-ance/static/media/ADA.d9b90224323ccff57026.png",
-    "static/media/BTC.png": "/bin-ance/static/media/BTC.82491fef997ab841639c.png",
-    "static/media/LINK.png": "/bin-ance/static/media/LINK.a36a2e78560b7adb1d33.png",
-    "static/media/credit.png": "/bin-ance/static/media/credit.9b90d033407cb65d0538.png",
-    "static/media/BNB.png": "/bin-ance/static/media/BNB.92643887cb735977d3b9.png",
-    "static/media/EUR.png": "/bin-ance/static/media/EUR.47f5111fbbda3a46fc88.png",
-    "static/media/USD.png": "/bin-ance/static/media/USD.8e9596e24cbf7d702372.png",
-    "static/media/GBP.png": "/bin-ance/static/media/GBP.d6ca5440261bd53dc0a1.png",
+    "main.js": "/bin-ance/static/js/main.6de1b141.js",
+    "static/media/DOGE.png": "/bin-ance/static/media/DOGE.0a0c438a4cfc6420ff2e.png",
+    "static/media/ATOM.png": "/bin-ance/static/media/ATOM.ecbacf91d96ce298342b.png",
+    "static/media/SHIB.png": "/bin-ance/static/media/SHIB.65972cd85d8cce888c10.png",
+    "static/media/SOL.png": "/bin-ance/static/media/SOL.94b2ca87feb14ef6609f.png",
+    "static/media/credit.png": "/bin-ance/static/media/credit.b8cf3a5a4d656507d390.png",
+    "static/media/ADA.png": "/bin-ance/static/media/ADA.5c4a55e49718c25cd0e1.png",
+    "static/media/BTC.png": "/bin-ance/static/media/BTC.7f723e9c51ecd8fafcbc.png",
+    "static/media/EUR.png": "/bin-ance/static/media/EUR.745c9a2d85da74c12178.png",
+    "static/media/USD.png": "/bin-ance/static/media/USD.fea5700d90d3d2b5c60e.png",
+    "static/media/DOT.png": "/bin-ance/static/media/DOT.e3babfb7360b7c03c3a0.png",
+    "static/media/bin-ance_logo.png": "/bin-ance/static/media/bin-ance_logo.2eb07a9a1225040e4868.png",
+    "static/media/GBP.png": "/bin-ance/static/media/GBP.c3f57efd4a4df1f485fe.png",
+    "static/media/ETH.png": "/bin-ance/static/media/ETH.2a0a82f38d4981e92068.png",
+    "static/media/LINK.png": "/bin-ance/static/media/LINK.0dc858fcfd7b6e677747.png",
+    "static/media/BNB.png": "/bin-ance/static/media/BNB.43777c218e53743bb91f.png",
     "index.html": "/bin-ance/index.html",
     "main.3b8036f1.css.map": "/bin-ance/static/css/main.3b8036f1.css.map",
-    "main.569f4ca4.js.map": "/bin-ance/static/js/main.569f4ca4.js.map"
+    "main.6de1b141.js.map": "/bin-ance/static/js/main.6de1b141.js.map"
   },
   "entrypoints": [
     "static/css/main.3b8036f1.css",
-    "static/js/main.569f4ca4.js"
+    "static/js/main.6de1b141.js"
   ]
 }
