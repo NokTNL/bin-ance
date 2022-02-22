@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actions } from "../../../store";
 
 import { fullCurrencyList } from "../../../database";
@@ -7,13 +7,15 @@ import { fullCurrencyList } from "../../../database";
 import { images } from "../../../imageLoader";
 import "./SubmitForm.css";
 
-export default function SubmitForm({ currencyCat, setCurrencyPair }) {
+export default function SubmitForm({
+  searchText,
+  currencyCat,
+  setCurrencyPair,
+}) {
   const dispatch = useDispatch();
 
   // Setting up for filtering by search text
-  const searchText = useSelector((state) => state.currencyOptions.searchText);
   const myFullCurrencyList = fullCurrencyList[currencyCat];
-
   const searchRegExp = new RegExp(searchText.toUpperCase());
   const myFilteredList = myFullCurrencyList.filter(
     (currency) =>
@@ -42,7 +44,7 @@ export default function SubmitForm({ currencyCat, setCurrencyPair }) {
               className="submit-form__option-list-input-hidden"
               name={currencyCat}
               id={symbol}
-              // no need value as the element is recognised by id
+              // no need "value" attribute as the element can be recognised by id
               onClick={handleConfirmCurrency}
             />
             <label htmlFor={symbol} className="submit-form__option-list-label">
