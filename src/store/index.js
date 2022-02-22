@@ -14,6 +14,7 @@ const currencyOptions = createSlice({
     },
     hideOptions(state) {
       state.isShowingOptions = false;
+      state.searchText = "";
       state.currencyCat = "";
     },
     setSearchText(state, action) {
