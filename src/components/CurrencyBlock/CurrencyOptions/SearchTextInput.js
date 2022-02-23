@@ -1,16 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { actions } from "../../../store";
-
-import "./SearchText.css";
+import "./SearchTextInput.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-export default function SearchText() {
-  const searchText = useSelector((state) => state.currencyOptions.searchText);
-  const dispatch = useDispatch();
-
+export default function SearchTextInput({ searchText, setSearchText }) {
   const handleSearchTextChange = (event) => {
-    dispatch(actions.currencyOptions.setSearchText(event.target.value));
+    setSearchText(event.target.value);
   };
 
   return (

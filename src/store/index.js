@@ -5,7 +5,6 @@ const currencyOptions = createSlice({
   initialState: {
     isShowingOptions: false,
     currencyCat: "",
-    searchText: "",
   },
   reducers: {
     showOptions(state, action) {
@@ -16,9 +15,6 @@ const currencyOptions = createSlice({
       state.isShowingOptions = false;
       state.currencyCat = "";
     },
-    setSearchText(state, action) {
-      state.searchText = action.payload;
-    },
   },
 });
 
@@ -27,6 +23,7 @@ const buying = createSlice({
   initialState: {
     // true = buy, false = sell
     isBuyCrypto: true,
+    // the currency category of the selected input box; value === "crypto" or "fiat"
     selectedInput: "",
     // only that slice of inputAmountPair is updated when the corresponding input box is selected
     inputAmountPair: {
@@ -54,6 +51,9 @@ const buying = createSlice({
     },
     changeInputAmount(state, action) {
       const newAmount = action.payload;
+      // Only change the input amount of the selected currency category.
+      // In the component, the other amount will be computed from the selecetd input & price, ...
+      // ... so it will be updated constantly
       state.inputAmountPair[state.selectedInput] = newAmount;
     },
   },

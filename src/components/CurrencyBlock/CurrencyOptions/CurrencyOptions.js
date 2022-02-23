@@ -1,18 +1,22 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { actions } from "../../../store";
 
 import SubmitForm from "./SubmitForm";
-import SearchText from "./SearchText";
+import SearchTextInput from "./SearchTextInput";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./CurrencyOptions.css";
 
 export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
+  // Component state as it is not quite relavent globally
+  const [searchText, setSearchText] = useState("");
+
   const dispatch = useDispatch();
 
   const onCancel = () => {
-    dispatch(actions.currencyOptions.showOptions(false));
+    dispatch(actions.currencyOptions.hideOptions());
   };
   return (
     <div className="currency-options">
@@ -22,8 +26,12 @@ export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
           <FontAwesomeIcon icon={faTimes} />
         </button>
       </div>
-      <SearchText />
-      <SubmitForm setCurrencyPair={setCurrencyPair} currencyCat={currencyCat} />
+      <SearchTextInput searchText={searchText} setSearchText={setSearchText} />
+      <SubmitForm
+        searchText={searchText}
+        setCurrencyPair={setCurrencyPair}
+        currencyCat={currencyCat}
+      />
     </div>
   );
 }
