@@ -7,7 +7,7 @@ import Overlay from "../Helpers/Overlay";
 
 import "./CurrencyBlock.css";
 
-export default function CurrencyInput({
+export default function CurrencyBlock({
   currencyCat,
   currencyType,
   setCurrencyPair,
