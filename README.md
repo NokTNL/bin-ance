@@ -5,12 +5,12 @@
 ➡️ Live preview: https://noktnl.github.io/bin-ance/
 
 A clone of [this Binance page](https://www.binance.com/en/buy-sell-crypto) but you can't really buy coins in it (hence the name *"Bin"-ance*...)\
-But *smarter* than the original page because the exchange rate updates whenever a new trade pops up in Binance, thanks to the Binance WebSocket API.
+But *smarter* than the original page because the price updates whenever a new trade pops up in Binance, thanks to the Binance WebSocket API.
 
 ### Technical highlights
 
-- *React*: `useState` for state management, `useEffect` for handling asynchronous side effects
-- *Redux*: states managed in slices
+- *React*: `useState` for local state management, `useEffect` for handling asynchronous side effects
+- *Redux*: global states organised in slices
 - *JavaScript*: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `fetchPrice.js`)
 - *CSS*: flexbox, variables, full-page overlay
 
