@@ -4,7 +4,6 @@
 
 ➡️ Live preview: https://noktnl.github.io/bin-ance/
 
-<<<<<<< HEAD
 A clone of [this Binance page](https://www.binance.com/en/buy-sell-crypto) but you can't really buy coins in it (hence the name _"Bin"-ance_...)\
 But _smarter_ than the original page because the price updates whenever a new trade pops up in Binance, thanks to the Binance WebSocket API.
 
@@ -14,18 +13,7 @@ But _smarter_ than the original page because the price updates whenever a new tr
 - _Redux_: global states organised in slices
 - _JavaScript_: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `fetchPrice.js`)
 - _CSS_: flexbox, variables, full-page overlay
-=======
-A clone of [this Binance page](https://www.binance.com/en/buy-sell-crypto) but you can't really buy coins in it (hence the name *"Bin"-ance*...)\
-But *smarter* than the original page because the price updates whenever a new trade pops up in Binance, thanks to the Binance WebSocket API.
-
-### Technical highlights
-
-- *React*: `useState` for local state management, `useEffect` for handling asynchronous side effects
-- *Redux*: global states organised in slices
-- *JavaScript*: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `fetchPrice.js`)
-- *CSS*: flexbox, variables, full-page overlay
 
 ### Credits
-- Icons: from https://cryptologos.cc/ and [FontAwesome](https://fontawesome.com)
 
->>>>>>> b8ef7bbd41f3436b4da7d40c81e8ca2d5d6d092d
+- Icons: from https://cryptologos.cc/ and [FontAwesome](https://fontawesome.com)
