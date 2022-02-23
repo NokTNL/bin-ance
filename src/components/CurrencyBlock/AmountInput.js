@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { actions } from "../../store";
+import { actions } from "../../store/store";
 
 import "./AmountInput.css";
 

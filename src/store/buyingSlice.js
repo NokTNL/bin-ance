@@ -1,24 +1,6 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-const currencyOptions = createSlice({
-  name: "currencyOptions",
-  initialState: {
-    isShowingOptions: false,
-    currencyCat: "",
-  },
-  reducers: {
-    showOptions(state, action) {
-      state.isShowingOptions = true;
-      state.currencyCat = action.payload;
-    },
-    hideOptions(state) {
-      state.isShowingOptions = false;
-      state.currencyCat = "";
-    },
-  },
-});
-
-const buying = createSlice({
+const buyingSlice = createSlice({
   name: "buying",
   initialState: {
     // true = buy, false = sell
@@ -59,15 +41,4 @@ const buying = createSlice({
   },
 });
 
-const store = configureStore({
-  reducer: {
-    currencyOptions: currencyOptions.reducer,
-    buying: buying.reducer,
-  },
-});
-
-export default store;
-export const actions = {
-  currencyOptions: currencyOptions.actions,
-  buying: buying.actions,
-};
+export default buyingSlice;

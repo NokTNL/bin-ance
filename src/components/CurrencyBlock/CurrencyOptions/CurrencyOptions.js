@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { actions } from "../../../store";
+import { actions } from "../../../store/store";
 
 import SubmitForm from "./SubmitForm";
 import SearchTextInput from "./SearchTextInput";

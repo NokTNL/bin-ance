@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { actions } from "../../../store";
+import { actions } from "../../../store/store";
 
 import { fullCurrencyList } from "../../../database";
 
