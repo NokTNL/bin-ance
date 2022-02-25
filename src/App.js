@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { initFetchPrice } from "./store/fetchPriceSlice";
 
 import BuySellPanel from "./components/BuySellPanel";
 import CurrencyBlock from "./components/CurrencyBlock/CurrencyBlock";
@@ -7,24 +8,32 @@ import ExchangeRate from "./components/ExchangeRate";
 import Header from "./components/Header";
 import BottomButton from "./components/BottomButton";
 
-import fetchPrice from "./fetchPrice";
-
 import "./App.css";
 import "./global.css";
 
-const CURRENCY_PAIR_DEFAULT = {
+/* const CURRENCY_PAIR_DEFAULT = {
   crypto: "BTC",
   fiat: "USD",
-};
+}; */
 
 function App() {
   // Redux
   const isBuyCrypto = useSelector((state) => state.ui.isBuyCrypto);
-  // If it's buying, display fiat above crytpo, and vice cersa
-  const cryptoFiatOrder = isBuyCrypto ? ["fiat", "crypto"] : ["crypto", "fiat"];
+  const price = useSelector((state) => state.fetchPrice.price);
+  const isPriceLoading = useSelector(
+    (state) => state.fetchPrice.isPriceLoading
+  );
+  const currencyPair = useSelector((state) => state.fetchPrice.currencyPair);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(initFetchPrice());
+  }, []);
+
+  /** Delete these ----> */
+  /* 
   // useState
-  const [currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
+  const [_currencyPair, setCurrencyPair] = useState(CURRENCY_PAIR_DEFAULT);
   // This price is always fiat per crypto (at least for the options provided in our database.js)
   const [price, setPrice] = useState("");
   const [isPriceLoading, setIsPriceLoading] = useState(true);
@@ -43,6 +52,12 @@ function App() {
     setIsPriceLoading(true);
     fetchPrice.setPair(currencyPair);
   }, [currencyPair]);
+  */
+
+  /** Delete these ----> */
+
+  // If it's buying, display fiat above crytpo, and vice cersa
+  const cryptoFiatOrder = isBuyCrypto ? ["fiat", "crypto"] : ["crypto", "fiat"];
 
   return (
     <div className="App">
@@ -58,7 +73,6 @@ function App() {
         <CurrencyBlock
           currencyCat={cat}
           currencyType={currencyPair[cat]}
-          setCurrencyPair={setCurrencyPair}
           price={price}
           key={cat}
           isSpend={index === 0}

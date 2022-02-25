@@ -4,14 +4,11 @@ import { actions } from "../../../store/store";
 
 import { fullCurrencyList } from "../../../database";
 
-import { images } from "../../../imageLoader";
+import { images } from "../../../scripts/imageLoader";
 import "./SubmitForm.css";
+import { sendNewCurrencyPair } from "../../../store/fetchPriceSlice";
 
-export default function SubmitForm({
-  searchText,
-  currencyCat,
-  setCurrencyPair,
-}) {
+export default function SubmitForm({ searchText, currencyCat }) {
   const dispatch = useDispatch();
 
   // Setting up for filtering by search text
@@ -26,10 +23,13 @@ export default function SubmitForm({
 
   const handleConfirmCurrency = (event) => {
     event.preventDefault();
-    const selectedCurrency = event.target.id;
-    setCurrencyPair((prev) => {
-      return { ...prev, [currencyCat]: selectedCurrency };
-    });
+    const selectedCurrencyType = event.target.id;
+    dispatch(
+      sendNewCurrencyPair({
+        selectedCurrencyType,
+        currencyCat,
+      })
+    );
     dispatch(actions.ui.hideOptions()); // Hide CurrencyOptions
   };
 

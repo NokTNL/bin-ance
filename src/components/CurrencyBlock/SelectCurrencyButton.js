@@ -4,7 +4,7 @@ import { actions } from "../../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./SelectCurrencyButton.css";
-import { images } from "../../imageLoader";
+import { images } from "../../scripts/imageLoader";
 
 export default function SelectCurrencyButton({ currencyCat, currencyType }) {
   const dispatch = useDispatch();

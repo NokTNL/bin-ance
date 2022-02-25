@@ -25,6 +25,14 @@ const uiSlice = createSlice({
     },
     showOptions(state, action) {
       const { selectedCurrencyCat } = action.payload;
+      // Check for invalid currency catagory name
+      switch (selectedCurrencyCat) {
+        case "crypto":
+        case "fiat":
+          break;
+        default:
+          throw new Error(`${selectedCurrencyCat} is not a valid currencyCat`);
+      }
       state.currencyOptions.isShowingOptions = true;
       state.currencyOptions.selectingCurrencyCat = selectedCurrencyCat;
     },
