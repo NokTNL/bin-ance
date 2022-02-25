@@ -4,10 +4,11 @@ import { actions } from "../../store/store";
 import "./AmountInput.css";
 
 export default function AmountInput({ currencyCat, price }) {
-  const selectedInput = useSelector((state) => state.buying.selectedInput);
+  const selectedInput = useSelector((state) => state.dataDisplay.selectedInput);
 
   const inputAmount = useSelector((state) => {
-    const selectedInputAmount = state.buying.inputAmountPair[selectedInput];
+    const selectedInputAmount =
+      state.dataDisplay.inputAmountPair[selectedInput];
     if (selectedInput === "" || selectedInputAmount === "") return "";
     // If this input box is selected, then this amount is taken directly from the state
     // Otherwise, it is calculated from the state's amount and price
@@ -25,12 +26,12 @@ export default function AmountInput({ currencyCat, price }) {
 
   const handleAmountChange = (event) => {
     const amount = event.target.value;
-    dispatch(actions.buying.changeInputAmount(amount));
+    dispatch(actions.dataDisplay.changeInputAmount(amount));
   };
 
   const handleFocusInput = (event) => {
     const currentAmount = inputAmount;
-    dispatch(actions.buying.selectInput({ currencyCat, currentAmount }));
+    dispatch(actions.dataDisplay.selectInput({ currencyCat, currentAmount }));
   };
 
   return (

@@ -16,7 +16,7 @@ export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
   const dispatch = useDispatch();
 
   const onCancel = () => {
-    dispatch(actions.currencyOptions.hideOptions());
+    dispatch(actions.ui.hideOptions());
   };
   return (
     <div className="currency-options">

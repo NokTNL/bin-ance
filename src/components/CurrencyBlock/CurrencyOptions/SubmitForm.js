@@ -30,7 +30,7 @@ export default function SubmitForm({
     setCurrencyPair((prev) => {
       return { ...prev, [currencyCat]: selectedCurrency };
     });
-    dispatch(actions.currencyOptions.hideOptions()); // Hide CurrencyOptions
+    dispatch(actions.ui.hideOptions()); // Hide CurrencyOptions
   };
 
   return (

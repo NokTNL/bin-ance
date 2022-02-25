@@ -17,8 +17,8 @@ export default function CurrencyBlock({
   const isShowingOptions = useSelector((state) => {
     // Only show options when this currency category is selected
     if (
-      state.currencyOptions.currencyCat === currencyCat &&
-      state.currencyOptions.isShowingOptions === true
+      state.ui.currencyOptions.selectingCurrencyCat === currencyCat &&
+      state.ui.currencyOptions.isShowingOptions === true
     ) {
       return true;
     } else return false;

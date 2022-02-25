@@ -19,7 +19,7 @@ const CURRENCY_PAIR_DEFAULT = {
 
 function App() {
   // Redux
-  const isBuyCrypto = useSelector((state) => state.buying.isBuyCrypto);
+  const isBuyCrypto = useSelector((state) => state.ui.isBuyCrypto);
   // If it's buying, display fiat above crytpo, and vice cersa
   const cryptoFiatOrder = isBuyCrypto ? ["fiat", "crypto"] : ["crypto", "fiat"];
 

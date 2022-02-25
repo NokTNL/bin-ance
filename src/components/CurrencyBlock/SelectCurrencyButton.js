@@ -10,7 +10,7 @@ export default function SelectCurrencyButton({ currencyCat, currencyType }) {
   const dispatch = useDispatch();
 
   const handleSelectCurrency = () => {
-    dispatch(actions.currencyOptions.showOptions(currencyCat));
+    dispatch(actions.ui.showOptions({ selectedCurrencyCat: currencyCat }));
   };
 
   return (

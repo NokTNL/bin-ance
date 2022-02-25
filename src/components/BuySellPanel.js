@@ -3,11 +3,11 @@ import { actions } from "../store/store";
 import "./BuySellPanel.css";
 
 export default function BuySellPanel() {
-  const isBuyCrypto = useSelector((state) => state.buying.isBuyCrypto);
+  const isBuyCrypto = useSelector((state) => state.ui.isBuyCrypto);
   const dispatch = useDispatch();
 
   const handleSelection = (event) => {
-    dispatch(actions.buying.setBuyOrSell(event.target.value));
+    dispatch(actions.ui.toggleBuySell(event.target.value));
   };
 
   return (

@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import buyingSlice from "./buyingSlice";
-import currencyOptionsSlice from "./currencyOptionsSlice";
+import dataDisplaySlice from "./dataDisplaySlice";
+import uiSlice from "./uiSlice";
 
 const store = configureStore({
   reducer: {
-    currencyOptions: currencyOptionsSlice.reducer,
-    buying: buyingSlice.reducer,
+    ui: uiSlice.reducer,
+    dataDisplay: dataDisplaySlice.reducer,
   },
 });
 
 export const actions = {
-  currencyOptions: currencyOptionsSlice.actions,
-  buying: buyingSlice.actions,
+  ui: uiSlice.actions,
+  dataDisplay: dataDisplaySlice.actions,
 };
 
 export default store;
