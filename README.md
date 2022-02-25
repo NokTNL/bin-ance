@@ -9,9 +9,9 @@ But _smarter_ than the original page because the price updates whenever a new tr
 
 ### Technical highlights
 
-- _React_: `useState` for local state management, `useEffect` for handling asynchronous side effects
-- _Redux_: global states organised in slices
-- _JavaScript_: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `fetchPrice.js`)
+- _React/Redux_: `useState` for local state management, Redux for global state management using `createSlice`
+- _Redux_: handles asynchronous actions with action creator thunks
+- _JavaScript_: `async` & `await`, `fetch` API, `WebSocket` API, module design pattern (in `scripts/fetchPrice.js`)
 - _CSS_: flexbox, variables, full-page overlay
 
 ### Credits
