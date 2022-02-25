@@ -33,8 +33,6 @@ const fetchPriceSlice = createSlice({
   },
 });
 
-const fetchPriceActions = fetchPriceSlice.actions;
-
 // Thunks
 export const initFetchPrice = () => {
   return (dispatch, getState) => {
@@ -52,12 +50,13 @@ export const sendNewCurrencyPair = ({ selectedCurrencyType, currencyCat }) => {
     const { currencyPair } = getState().fetchPrice;
     if (currencyPair[currencyCat] !== selectedCurrencyType) {
       dispatch(
-        fetchPriceActions.updateCurrencyPair({
+        fetchPriceSlice.actions.updateCurrencyPair({
           selectedCurrencyType,
           currencyCat,
         })
       );
-      //   fetchPrice.setPair(currencyPair);
+      const { currencyPair: newCurrencyPair } = getState().fetchPrice;
+      fetchPrice.setPair(newCurrencyPair);
     }
   };
 };

@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { actions } from "../../../store/store";
+import { sendNewCurrencyPair } from "../../../store/fetchPriceSlice";
 
 import { fullCurrencyList } from "../../../database";
 
 import { images } from "../../../scripts/imageLoader";
 import "./SubmitForm.css";
-import { sendNewCurrencyPair } from "../../../store/fetchPriceSlice";
 
 export default function SubmitForm({ searchText, currencyCat }) {
   const dispatch = useDispatch();
