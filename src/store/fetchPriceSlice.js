@@ -41,6 +41,7 @@ export const initFetchPrice = () => {
     };
     // Pass the setPrice function to let the module update the price for us
     fetchPrice.init(setPriceFunc);
+    // fetch the price of the initial pair
     fetchPrice.setPair(getState().fetchPrice.currencyPair);
   };
 };
@@ -55,6 +56,7 @@ export const sendNewCurrencyPair = ({ selectedCurrencyType, currencyCat }) => {
           currencyCat,
         })
       );
+      // dispatch is SYNCHRONOUS so you will have an updated state straight away
       const { currencyPair: newCurrencyPair } = getState().fetchPrice;
       fetchPrice.setPair(newCurrencyPair);
     }

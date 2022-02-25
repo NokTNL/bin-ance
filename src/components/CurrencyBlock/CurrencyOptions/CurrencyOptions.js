@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./CurrencyOptions.css";
 
-export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
+export default function CurrencyOptions({ currencyCat }) {
   // Component state as it is not quite relavent globally
   const [searchText, setSearchText] = useState("");
 
@@ -27,11 +27,7 @@ export default function CurrencyOptions({ currencyCat, setCurrencyPair }) {
         </button>
       </div>
       <SearchTextInput searchText={searchText} setSearchText={setSearchText} />
-      <SubmitForm
-        searchText={searchText}
-        setCurrencyPair={setCurrencyPair}
-        currencyCat={currencyCat}
-      />
+      <SubmitForm searchText={searchText} currencyCat={currencyCat} />
     </div>
   );
 }

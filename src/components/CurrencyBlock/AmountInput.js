@@ -3,8 +3,9 @@ import { actions } from "../../store/store";
 
 import "./AmountInput.css";
 
-export default function AmountInput({ currencyCat, price }) {
+export default function AmountInput({ currencyCat }) {
   const selectedInput = useSelector((state) => state.dataDisplay.selectedInput);
+  const price = useSelector((state) => state.fetchPrice.price);
 
   const inputAmount = useSelector((state) => {
     const selectedInputAmount =

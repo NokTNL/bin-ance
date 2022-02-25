@@ -1,15 +1,21 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExchangeAlt } from "@fortawesome/free-solid-svg-icons";
 
 import "./ExchangeRate.css";
 
-export default function ExchangeRate({
-  price,
-  currencyPair: { crypto, fiat },
-  isPriceLoading,
-}) {
+export default function ExchangeRate() {
   const [isCryptoBase, setIsCryptoBase] = useState(true);
+
+  const price = useSelector((state) => state.fetchPrice.price);
+  const isPriceLoading = useSelector(
+    (state) => state.fetchPrice.isPriceLoading
+  );
+  const { crypto, fiat } = useSelector(
+    (state) => state.fetchPrice.currencyPair
+  );
 
   const handleSwap = () => {
     setIsCryptoBase((prev) => !prev);

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../store/store";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +6,10 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import "./SelectCurrencyButton.css";
 import { images } from "../../scripts/imageLoader";
 
-export default function SelectCurrencyButton({ currencyCat, currencyType }) {
+export default function SelectCurrencyButton({ currencyCat }) {
+  const currencyType = useSelector(
+    (state) => state.fetchPrice.currencyPair[currencyCat]
+  );
   const dispatch = useDispatch();
 
   const handleSelectCurrency = () => {
