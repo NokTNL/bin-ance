@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bin-ance/static/css/main.3b8036f1.css",
-    "main.js": "/bin-ance/static/js/main.b72b1084.js",
+    "main.css": "/bin-ance/static/css/main.d64e9f3f.css",
+    "main.js": "/bin-ance/static/js/main.2924768e.js",
     "static/media/DOGE.png": "/bin-ance/static/media/DOGE.0a0c438a4cfc6420ff2e.png",
     "static/media/ATOM.png": "/bin-ance/static/media/ATOM.ecbacf91d96ce298342b.png",
     "static/media/SHIB.png": "/bin-ance/static/media/SHIB.65972cd85d8cce888c10.png",
@@ -18,11 +18,11 @@
     "static/media/LINK.png": "/bin-ance/static/media/LINK.0dc858fcfd7b6e677747.png",
     "static/media/BNB.png": "/bin-ance/static/media/BNB.43777c218e53743bb91f.png",
     "index.html": "/bin-ance/index.html",
-    "main.3b8036f1.css.map": "/bin-ance/static/css/main.3b8036f1.css.map",
-    "main.b72b1084.js.map": "/bin-ance/static/js/main.b72b1084.js.map"
+    "main.d64e9f3f.css.map": "/bin-ance/static/css/main.d64e9f3f.css.map",
+    "main.2924768e.js.map": "/bin-ance/static/js/main.2924768e.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b8036f1.css",
-    "static/js/main.b72b1084.js"
+    "static/css/main.d64e9f3f.css",
+    "static/js/main.2924768e.js"
   ]
 }
