@@ -2,10 +2,11 @@
   /* footer style */
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 1rem 1rem 1rem;
+  left: 1rem;
+  right: 1rem;
+  margin: 0 auto 1rem auto; /* centering */
   padding: 0.5em 0;
+  max-width: 650px; /* Follows .app-body-flex-container */
 
   border-radius: 0.2rem;
   background-color: #f8cd2a;

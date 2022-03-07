@@ -27,13 +27,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>{isBuyCrypto ? "Buy" : "Sell"} Crypto</h1>
-      <BuySellPanel />
-      <ExchangeRate />
-      {cryptoFiatOrder.map((cat, index) => (
-        <CurrencyBlock currencyCat={cat} key={cat} isSpend={index === 0} />
-      ))}
-      <BottomButton />
+      <div className="app-body-flex-container">
+        <h1>{isBuyCrypto ? "Buy" : "Sell"} Crypto</h1>
+        <BuySellPanel />
+        <ExchangeRate />
+        {cryptoFiatOrder.map((cat, index) => (
+          <CurrencyBlock currencyCat={cat} key={cat} isSpend={index === 0} />
+        ))}
+        <BottomButton />
+      </div>
     </div>
   );
 }
