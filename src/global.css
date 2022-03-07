@@ -38,4 +38,5 @@ a {
 
 input {
   border: none;
+  min-width: 0;
 }

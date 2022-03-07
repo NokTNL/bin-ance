@@ -1,9 +1,14 @@
 .exchange-rate {
-  text-align: center;
-
   height: 2em; /* To fix the height regardless of loading or loaded, bc. of border-box */
-  padding: 1em 0;
-  margin: 1rem 0;
+  margin: 2rem 0 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exchange-rate > span {
+  margin-left: 0.7rem;
 }
 
 .exchange-rate__swap-base-button {

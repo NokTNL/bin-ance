@@ -4,7 +4,7 @@ import "./Header.css";
 
 export default function Header() {
   return (
-    <header>
+    <header className="header">
       <img alt="bin-ance" src={logoImg} className="header__logo-img" />
       <img
         alt="powered by the Binance API"

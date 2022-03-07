@@ -10,6 +10,7 @@ import BottomButton from "./components/BottomButton";
 
 import "./App.css";
 import "./global.css";
+import "./reset.css";
 
 function App() {
   const isBuyCrypto = useSelector((state) => state.ui.isBuyCrypto);
